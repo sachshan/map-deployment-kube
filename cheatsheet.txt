@@ -1,0 +1,7 @@
+export KUBECONFIG=~/.kube/config-terraform-eks-demo
+echo "export KUBECONFIG=${KUBECONFIG}" >> ${HOME}/.bash_profile
+
+terraform output kubeconfig > ~/.kube/config-terraform-eks-demo
+
+terraform output config_map_aws_auth > config-map-aws-auth.yml
+kubectl apply -f config-map-aws-auth.yml
